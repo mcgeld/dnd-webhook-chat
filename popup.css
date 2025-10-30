@@ -1,0 +1,253 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --muted: #9aa3b2;
+  --text: #e8ecf1;
+  --accent: #6aa6ff;
+  --accent-2: #a483ff;
+  --border: #232734;
+  --hover: #1d2230;
+  --success: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 350px;
+  min-height: 400px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, #0e1118, var(--bg));
+  color: var(--text);
+  padding: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #0f1420;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.4;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.primary-button {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(106,166,255,.22), rgba(164,131,255,.16));
+  border: 1px solid rgba(106,166,255,.6);
+  color: var(--text);
+}
+
+.primary-button:hover {
+  filter: brightness(1.15);
+}
+
+.secondary-button {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(164,131,255,.22), rgba(106,166,255,.16));
+  border: 1px solid rgba(164,131,255,.6);
+  color: var(--text);
+}
+
+.secondary-button:hover {
+  filter: brightness(1.15);
+}
+
+#saveWebhook {
+  width: 100%;
+  margin-top: 8px;
+  background: var(--accent);
+  color: white;
+}
+
+#saveWebhook:hover {
+  filter: brightness(1.1);
+}
+
+.link-button {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  padding: 0;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.link-button:hover {
+  color: var(--accent-2);
+}
+
+.section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.status-indicator {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.dice-button {
+  padding: 12px;
+  background: #0f1420;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.dice-button:hover {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.dice-button:active {
+  transform: scale(0.95);
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subsection-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.modifier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.modifier-button {
+  padding: 10px;
+  background: #0f1420;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.modifier-button:hover {
+  background: var(--hover);
+  border-color: var(--accent-2);
+}
+
+.modifier-button.active {
+  background: linear-gradient(180deg, rgba(164,131,255,.25), rgba(164,131,255,.15));
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.modifier-button:active {
+  transform: scale(0.95);
+}
+
+#statusMessage {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+  display: none;
+}
+
+#statusMessage.success {
+  display: block;
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+#statusMessage.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+#setupSection {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}

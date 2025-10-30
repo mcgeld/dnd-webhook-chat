@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&D Player Chat</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>D&D Player Chat</h1>
+    
+    <!-- Setup Section -->
+    <div id="setupSection">
+      <label for="webhookUrl">Webhook URL:</label>
+      <input type="text" id="webhookUrl" placeholder="Enter your webhook URL">
+      <button id="saveWebhook">Save Webhook</button>
+    </div>
+
+    <!-- Main Section (hidden until webhook is set) -->
+    <div id="mainSection" style="display: none;">
+      <div class="status">
+        <span class="status-indicator"></span>
+        <span>Webhook configured</span>
+        <button id="changeWebhook" class="link-button">Change</button>
+      </div>
+
+      <!-- Message Section -->
+      <div class="section">
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" placeholder="Type your message... (Enter to send, Shift+Enter for newline)"></textarea>
+        <button id="sendMessage" class="primary-button">Send Message</button>
+      </div>
+
+      <!-- Dice Roll Section -->
+      <div class="section">
+        <label>Dice Roll:</label>
+        
+        <!-- Quick Dice Buttons -->
+        <div class="subsection">
+          <span class="subsection-label">Quick Rolls:</span>
+          <div class="dice-grid">
+            <button class="dice-button" data-sides="20">d20</button>
+            <button class="dice-button" data-sides="12">d12</button>
+            <button class="dice-button" data-sides="10">d10</button>
+            <button class="dice-button" data-sides="8">d8</button>
+            <button class="dice-button" data-sides="6">d6</button>
+            <button class="dice-button" data-sides="4">d4</button>
+          </div>
+        </div>
+
+        <!-- Manual Roll Entry -->
+        <div class="subsection">
+          <span class="subsection-label">Or enter roll:</span>
+          <input type="number" id="diceRoll" placeholder="Enter roll value" min="1">
+        </div>
+
+        <!-- Modifiers -->
+        <div class="subsection">
+          <span class="subsection-label">Modifier:</span>
+          <div class="modifier-grid">
+            <button class="modifier-button" data-modifier="-2">-2</button>
+            <button class="modifier-button" data-modifier="-1">-1</button>
+            <button class="modifier-button" data-modifier="0">0</button>
+            <button class="modifier-button" data-modifier="1">+1</button>
+            <button class="modifier-button" data-modifier="2">+2</button>
+            <button class="modifier-button" data-modifier="3">+3</button>
+            <button class="modifier-button" data-modifier="4">+4</button>
+          </div>
+          <input type="number" id="customModifier" placeholder="Or enter custom modifier">
+        </div>
+
+        <button id="sendDice" class="secondary-button">Send Roll</button>
+      </div>
+    </div>
+
+    <div id="statusMessage"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
