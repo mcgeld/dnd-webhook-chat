@@ -1,20 +1,55 @@
 # D&D Player Chat - Web Version
 
-This is the standalone web version of the D&D Player Chat extension, optimized for serving on a web server and mobile devices.
+This is the standalone web version of the D&D Player Chat extension, optimized for serving on a web server and mobile devices. It's a Progressive Web App (PWA) that can be installed on phones and tablets!
 
 ## Files
 
-- `index.html` - Main HTML file
-- `script.js` - JavaScript with localStorage instead of Chrome storage API
+- `index.html` - Main HTML file with PWA meta tags
+- `script.js` - JavaScript with localStorage and service worker
 - `style.css` - CSS optimized for web and mobile devices
+- `manifest.json` - PWA manifest for Android install prompt
+- `service-worker.js` - Enables offline support and caching
+- `icon16.png`, `icon48.png`, `icon128.png` - App icons
 
 ## Deployment
 
-Simply upload all three files to your web server. You can:
+Upload all files to your web server:
+- `index.html`
+- `script.js`
+- `style.css`
+- `manifest.json`
+- `service-worker.js`
+- `icon16.png`
+- `icon48.png`
+- `icon128.png`
 
-1. **Place in a subdirectory**: `yourserver.com/dnd-chat/index.html`
-2. **Use as standalone page**: `yourserver.com/player-chat.html` (rename index.html)
-3. **Root level**: Serve directly from your domain root
+You can place them in a subdirectory or at root level.
+
+## Installing as an App
+
+### Android (Chrome/Edge)
+1. Visit the page in Chrome or Edge
+2. You'll see an "Install" or "Add to Home Screen" prompt
+3. Tap it to install as a standalone app
+4. The app will appear in your app drawer with your D&D icon!
+
+### iOS (Safari)
+1. Visit the page in Safari
+2. Tap the Share button (square with arrow)
+3. Scroll down and tap "Add to Home Screen"
+4. Tap "Add" in the top right
+5. The app will appear on your home screen!
+
+### Desktop (Chrome/Edge)
+1. Visit the page
+2. Look for the install icon in the address bar
+3. Click to install as a desktop app
+
+Once installed, the app:
+- Opens in its own window (no browser UI)
+- Has its own icon
+- Works offline (after first visit)
+- Feels like a native app!
 
 ## Usage
 

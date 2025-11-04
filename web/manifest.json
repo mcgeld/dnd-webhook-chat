@@ -1,0 +1,33 @@
+{
+  "name": "D&D Player Chat",
+  "short_name": "D&D Chat",
+  "description": "Send messages and dice rolls to your D&D game chat via webhook",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f1115",
+  "theme_color": "#6aa6ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icon48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
