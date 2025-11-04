@@ -12,8 +12,8 @@
   <meta name="theme-color" content="#6aa6ff">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
-  <!-- iOS Home Screen -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Mobile Web App -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="D&D Chat">
   <link rel="apple-touch-icon" href="icon128.png">
   
@@ -37,12 +37,6 @@
 
     <!-- Main Section (hidden until webhook is set) -->
     <div id="mainSection" style="display: none;">
-      <div class="status">
-        <span class="status-indicator"></span>
-        <span>Webhook configured</span>
-        <button id="changeWebhook" class="link-button">Change</button>
-      </div>
-
       <!-- Message Section -->
       <div class="section">
         <label for="message">Message:</label>
@@ -89,6 +83,11 @@
         </div>
 
         <button id="sendDice" class="secondary-button">Send Roll</button>
+      </div>
+      <div class="status">
+        <span class="status-indicator"></span>
+        <span>Webhook configured</span>
+        <button id="changeWebhook" class="link-button">Change</button>
       </div>
     </div>
 
