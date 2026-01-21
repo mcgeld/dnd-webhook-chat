@@ -1,76 +1,57 @@
-# D&D Player Chat Extension
+---
+title: D&D Webhook Dice Roller & Chat
+status: active
+tags: [JavaScript, Webhooks, PWA, Browser Extension, Dungeons & Dragons]
+vision: "To provide a quick, cross-platform interface for D&D dice rolling and text communication via custom webhooks."
+---
 
-A Chrome extension that allows D&D players to send messages and dice rolls to their game chat via webhook.
+# D&D Webhook Dice Roller & Chat
 
-## Features
+## Description
 
-- **Webhook Configuration**: Set up your webhook URL once, and it's saved for future use
-- **Send Messages**: Type and send messages directly to the chat (Enter to send, Shift+Enter for newline)
-- **Dice Rolls with Modifiers**: Roll dice and add modifiers for ability checks, attacks, and more
-- **Quick Dice Rolls**: Click quick roll buttons (d4, d6, d8, d10, d12, d20) to automatically roll
-- **Quick Modifiers**: Select common modifiers (-2 to +4) or enter custom values
-- **Automatic Calculations**: See the roll, modifier, and total in one message
+D&D Webhook Dice Roller & Chat is a lightweight utility designed to facilitate online Dungeons & Dragons gameplay by sending formatted chat messages and complex dice roll results directly to a user-defined HTTP webhook endpoint (e.g., Discord or a custom Virtual Tabletop listener).
 
-## Installation
+The project is structured to support two primary deployment methods:
+1.  **Browser Extension:** A compact pop-up interface for quick access during browser-based gaming.
+2.  **Progressive Web Application (PWA):** A standalone web application offering offline support via Service Workers.
 
-### From Chrome Web Store
-1. Visit the Chrome Web Store
-2. Search for "D&D Player Chat"
-3. Click "Add to Chrome"
+Both implementations use the same core logic for managing the webhook URL, sending messages, and executing standard dice notation (e.g., `1d20+5`).
 
-### Manual Installation (Developer Mode)
-1. Download or clone this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked"
-5. Select the extension folder
-6. The extension icon will appear in your toolbar
+## Setup/Installation
 
-## Setup
+This project can be deployed either as a standard web application or as a development-mode browser extension.
 
-1. Click the extension icon
-2. Enter your webhook URL (e.g., Google Chat, Discord, Slack)
-3. Click "Save Webhook"
-4. You're ready to go!
+### 1. PWA Installation (Recommended for Desktop/Mobile)
 
-## Usage
+The PWA is located in the `/web` directory.
 
-### Send a Message
-1. Type your message in the "Message" field
-2. Press Enter to send (Shift+Enter for newline)
+1.  Host the contents of the `/web` directory on a web server (e.g., GitHub Pages, Netlify).
+2.  Navigate to the hosted `index.html`.
+3.  Your browser (if PWA compatible) will prompt you to "Install App" or "Add to Home Screen." The included `service-worker.js` handles caching and offline functionality.
 
-### Send a Dice Roll
-1. **Choose your roll**:
-   - Click a quick roll button (d20, d12, d10, d8, d6, d4), OR
-   - Manually enter a roll value
-2. **Select a modifier** (optional):
-   - Click a modifier button (-2 to +4), OR
-   - Enter a custom modifier value
-3. Click "Send Roll"
-4. Sends as: "_Rolled d20: 15 +3 = 18_"
+### 2. Browser Extension Installation (Chrome/Edge/Brave)
 
-## Supported Webhooks
+The extension files are in the repository root.
 
-This extension works with any webhook that accepts JSON POST requests with a `text` field:
-- Google Chat
-- Discord
-- Slack
-- Custom webhooks
+1.  Clone this repository locally.
+2.  Open your browser's extensions management page (e.g., `chrome://extensions`).
+3.  Enable **Developer Mode**.
+4.  Click **Load Unpacked**.
+5.  Select the root directory of the cloned repository. The extension icon will now appear in your toolbar.
 
-## Privacy
+### Configuration
 
-This extension:
-- Stores your webhook URL locally in your browser only
-- Does not collect or transmit any personal data to external servers
-- Sends messages directly from your browser to your configured webhook
-- See [PRIVACY_POLICY.md](PRIVACY_POLICY.md) for full details
+Once the application or extension is loaded:
 
-## License
+1.  Enter your target HTTP webhook URL (e.g., a Discord webhook URL) into the configuration field.
+2.  Click **Save Webhook**. The URL is saved locally (`chrome.storage.sync` for the extension, `localStorage` for the PWA) and the main interface will become available.
 
-MIT License - feel free to use and modify!
+## Tech Stack
 
-## Notes
-
-- Your webhook URL is stored securely in Chrome''s sync storage
-- The extension uses the same dark theme as your DM tool
-- Dice roll messages are automatically italicized
+| Component | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript (ES6+) | Core user interface and application logic. |
+| **Extension Storage** | Chrome Storage API (`chrome.storage.sync`) | Persistent storage for the Webhook URL in the extension environment. |
+| **PWA Storage** | Local Storage API | Persistent storage for the Webhook URL in the web application environment. |
+| **Offline Support** | Service Workers | Enables the PWA version to be run offline by caching static assets. |
+| **Communication** | HTTP `POST` Requests | Sends structured JSON payloads (chat and dice rolls) to the external webhook endpoint. |
